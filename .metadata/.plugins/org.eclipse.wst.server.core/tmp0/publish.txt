@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Sat Nov 19 23:08:52 ICT 2016
+org.eclipse.jst.j2ee.server\:user=WEB-INF/lib/user-1.0.0-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:product=WEB-INF/lib/product-1.0.0-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:model=WEB-INF/lib/model-1.0.0-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:supplier=WEB-INF/lib/supplier-1.0.0-SNAPSHOT.jar
