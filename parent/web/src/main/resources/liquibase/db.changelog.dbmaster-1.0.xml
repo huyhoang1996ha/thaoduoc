@@ -4,4 +4,44 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"
 	logicalFilePath="db.changelog.dbmaster-1.0.xml">
+	<changeSet id="1" author="admin">
+	<createTable tableName="user">
+	<column name="username" type="VARCHAR(45)">
+	<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="password" type="INT"></column>
+	</createTable>
+	</changeSet>
+	
+	<changeSet id="2" author="admin">
+		<createTable tableName="product">
+		<column name="id" type="INT">
+			<constraints primaryKey="true" nullable="false"/>
+		</column>
+		<column name="number" type="INT"></column>
+		<column name="status" type="VARCHAR(45)"></column>
+		<column name="orderday" type="DATE"></column>
+		<column name="assignday" type="DATE"></column>
+		<column name="receiveday" type="DATE"></column>
+		</createTable>
+		<createTable tableName="supplier">
+			<column name="id" type="INT">
+			<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(45)"></column>
+			<column name="price" type="VARCHAR(45)"></column>
+		</createTable>
+	</changeSet>
+	<changeSet id="3" author="admin">
+	<addColumn tableName="product">
+	<column name="user" type="VARCHAR(45)"></column>
+	</addColumn>
+	</changeSet>
+	<changeSet id="4" author="admin">
+	<addForeignKeyConstraint constraintName="fk_product_user" referencedTableName="user" baseColumnNames="user" baseTableName="product" referencedColumnNames="username"/>
+	</changeSet>
+	<changeSet id="5" author="admin">
+	
+	</changeSet>
+	
 	</databaseChangeLog>
