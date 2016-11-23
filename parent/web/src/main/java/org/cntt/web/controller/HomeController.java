@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
 	@Autowired
-	@Qualifier("productService")
 	ProductService productService;
 	
 	@RequestMapping(value={"/home"},method=RequestMethod.GET)

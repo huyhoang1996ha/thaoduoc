@@ -3,13 +3,22 @@ package org.cntt.model.product;
 
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
+import org.cntt.model.supplier.Supplier;
+import org.cntt.model.user.User;
+
+@Entity(name="product")
 @Table(name="product")
 public class Product {
 
@@ -25,6 +34,24 @@ public class Product {
 	private Date assignDay;
 	@Column(name="receiveday")
 	private Date receiveDay;
+	@ManyToOne
+	@JoinColumn(name="user")
+	private User user;
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="pro_sup",joinColumns={@JoinColumn(name="id_pro")},inverseJoinColumns={@JoinColumn(name="id_sup")})
+	private Set<Supplier>suppliers;
+	public Set<Supplier> getSuppliers() {
+		return suppliers;
+	}
+	public void setSuppliers(Set<Supplier> suppliers) {
+		this.suppliers = suppliers;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getId() {
 		return id;
 	}
@@ -70,4 +97,5 @@ public class Product {
 	public void setReceiveDay(Date receiveDay) {
 		this.receiveDay = receiveDay;
 	}
+	
 }

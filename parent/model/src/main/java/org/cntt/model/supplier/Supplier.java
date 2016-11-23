@@ -1,11 +1,16 @@
 package org.cntt.model.supplier;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Entity
+import org.cntt.model.product.Product;
+
+@Entity(name="supplier")
 @Table(name="supplier")
 public class Supplier {
 
@@ -15,6 +20,14 @@ public class Supplier {
 	private String name;
 	@Column(name="price")
 	private String price;
+	@ManyToMany(mappedBy="supplier")
+	private Set<Product>products;
+	public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
 	public int getId() {
 		return id;
 	}
