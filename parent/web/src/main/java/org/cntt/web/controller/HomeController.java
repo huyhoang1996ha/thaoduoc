@@ -1,18 +1,19 @@
 package org.cntt.web.controller;
 
-import org.apache.maven.model.Model;
 import org.cntt.model.product.Product;
 import org.cntt.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller; 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 	@Autowired
+	@Qualifier("productService")
 	ProductService productService;
 	
 	@RequestMapping(value={"/home"},method=RequestMethod.GET)
@@ -20,9 +21,9 @@ public class HomeController {
 		return "home";
 	}
 	@RequestMapping(value="/product",method=RequestMethod.GET)
-	public String product(@RequestParam int id,ModelAndView model){
+	public String product(@RequestParam int id,Model model){
 		Product product=productService.findOne(id);
-		model.addObject("product", product);
+		model.addAttribute("product", product);
 		return "product";
 	}
 }

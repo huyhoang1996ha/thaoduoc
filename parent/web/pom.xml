@@ -139,7 +139,7 @@
 				
 				<executions>
 					<execution>
-						<id>liquibase-dbmaster-delete</id>
+						<id>liquibase-dbmaster-update</id>
 						<phase>process-resources</phase>
 						<goals>
 							<goal>update</goal>
