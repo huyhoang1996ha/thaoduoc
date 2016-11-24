@@ -1,5 +1,6 @@
 package org.cntt.model.supplier;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,10 +11,14 @@ import javax.persistence.Table;
 
 import org.cntt.model.product.Product;
 
-@Entity(name="supplier")
+@Entity
 @Table(name="supplier")
-public class Supplier {
+public class Supplier implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private int id;
 	@Column(name="name")
@@ -22,6 +27,7 @@ public class Supplier {
 	private String price;
 	@ManyToMany(mappedBy="supplier")
 	private Set<Product>products;
+	
 	public Set<Product> getProducts() {
 		return products;
 	}

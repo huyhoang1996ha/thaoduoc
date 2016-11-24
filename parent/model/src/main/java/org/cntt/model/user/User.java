@@ -1,5 +1,6 @@
 package org.cntt.model.user;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,14 +12,21 @@ import javax.persistence.Table;
 
 import org.cntt.model.product.Product;
 
-@Entity(name="user")
+@Entity
 @Table(name="user")
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
+	@Column(name="username")
 	private String userName;
 	@Column(name="password")
 	private int passWord;
+	@OneToMany(mappedBy="user",fetch=FetchType.EAGER)
+	private List<Product>products;
 	public String getUserName() {
 		return userName;
 	}
@@ -42,6 +50,5 @@ public class User {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-	@OneToMany(mappedBy="user",fetch=FetchType.EAGER)
-	private List<Product>products;
+	
 }
