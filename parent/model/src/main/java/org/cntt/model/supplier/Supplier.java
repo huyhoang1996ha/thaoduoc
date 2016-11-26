@@ -18,6 +18,10 @@ import org.cntt.model.product.Product;
 @Table(name="supplier")
 public class Supplier  {
 
+	@Override
+	public String toString() {
+		return "Supplier [id=" + id + ", name=" + name + ", price=" + price + ", products=" + products + "]";
+	}
 	/**
 	 * 
 	 */
@@ -60,5 +64,9 @@ public class Supplier  {
 		this.id = id;
 		this.name = name;
 		this.price = price;
+	}
+	public Supplier() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 }

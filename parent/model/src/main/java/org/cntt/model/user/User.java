@@ -32,6 +32,7 @@ public class User  {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
 	public int getPassWord() {
 		return passWord;
 	}
@@ -48,6 +49,20 @@ public class User  {
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	public User(String userName, int passWord, List<Product> products) {
+		super();
+		this.userName = userName;
+		this.passWord = passWord;
+		this.products = products;
+	}
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "User [userName=" + userName + ", passWord=" + passWord + ", products=" + products + "]";
 	}
 	
 }

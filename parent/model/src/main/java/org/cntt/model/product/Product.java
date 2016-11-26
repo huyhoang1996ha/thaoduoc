@@ -23,9 +23,7 @@ import org.cntt.model.user.User;
 @Table(name="product")
 public class Product  {
 
-	/**
-	 * 
-	 */
+	
 	@Id
 	private int id;
 	@Column(name="number")
@@ -100,5 +98,18 @@ public class Product  {
 	public void setReceiveDay(Date receiveDay) {
 		this.receiveDay = receiveDay;
 	}
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", number=" + number + ", status=" + status + ", orderDay=" + orderDay
+				+ ", assignDay=" + assignDay + ", receiveDay=" + receiveDay + ", user=" + user + ", suppliers="
+				+ suppliers + "]";
+	}
+	/**
+	 * 
+	 */
 	
 }
