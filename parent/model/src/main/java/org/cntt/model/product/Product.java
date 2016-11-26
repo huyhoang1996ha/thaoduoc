@@ -2,7 +2,7 @@ package org.cntt.model.product;
 
 
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.Date;
 import java.util.Set;
 
@@ -21,12 +21,11 @@ import org.cntt.model.user.User;
 
 @Entity
 @Table(name="product")
-public class Product implements Serializable {
+public class Product  {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	private int id;
 	@Column(name="number")
@@ -42,9 +41,7 @@ public class Product implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="user")
 	private User user;
-	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="pro_sup",joinColumns={@JoinColumn(name="id_pro")},inverseJoinColumns={@JoinColumn(name="id_sup")})
+	@ManyToMany(mappedBy="products")
 	private Set<Supplier>suppliers;
 	public Set<Supplier> getSuppliers() {
 		return suppliers;

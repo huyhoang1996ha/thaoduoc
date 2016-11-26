@@ -6,7 +6,6 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>user</artifactId>
-    
   <dependencies>
 				<dependency>
 			<groupId>cntt</groupId>
@@ -27,5 +26,4 @@
 		</dependency>
 
 	</dependencies>
-  
 </project>

@@ -5,7 +5,10 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -13,19 +16,19 @@ import org.cntt.model.product.Product;
 
 @Entity
 @Table(name="supplier")
-public class Supplier implements Serializable {
+public class Supplier  {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	private int id;
 	@Column(name="name")
 	private String name;
 	@Column(name="price")
 	private String price;
-	@ManyToMany(mappedBy="supplier")
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="pro_sup",joinColumns=@JoinColumn(name="id_sup"),inverseJoinColumns=@JoinColumn(name="id_pro"))
 	private Set<Product>products;
 	
 	public Set<Product> getProducts() {

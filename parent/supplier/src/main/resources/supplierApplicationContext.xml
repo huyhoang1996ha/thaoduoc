@@ -10,9 +10,13 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 ">
-<import resource="appconfig-mvc.xml"/>
-<import resource="appconfig-data.xml"/>
-<import resource="classpath:productApplicationContext.xml"/>
-<import resource="classpath:supplierApplicationContext.xml"/>
-<import resource="classpath:userApplicationContext.xml"/>
+
+    <!-- It register the beans in context and scan the annotations inside beans and activate them -->
+    <context:component-scan base-package="org.cntt.supplier.*" />
+
+    <!-- This allow for dispatching requests to Controllers -->
+    <mvc:annotation-driven />
+    
+    <jpa:repositories base-package="org.cntt.supplier.repository"></jpa:repositories>
+    
 </beans>

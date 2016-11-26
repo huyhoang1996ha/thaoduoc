@@ -19,10 +19,10 @@ public class HomeController {
 	public String home(){
 		return "home";
 	}
-	@RequestMapping(value="/product",method=RequestMethod.GET)
-	public String product(@RequestParam int id,Model model){
-		Product product=productService.findOne(id);
-		model.addAttribute("product", product);
-		return "product";
-	}
+//	@RequestMapping(value="/product",method=RequestMethod.GET)
+//	public String product(@RequestParam int id,Model model){
+//		Product product=productService.findOne(id);
+//		model.addAttribute("product", product);
+//		return "product";
+//	}
 }
