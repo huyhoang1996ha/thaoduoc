@@ -3,13 +3,16 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
       <tiles-definitions>
-      <definition name="definition" template="/src/main/webapp/template/template.jsp">
-      <put-attribute name="header" value="/src/main/webapp/template/header.jsp"></put-attribute>
+      <definition name="definition" template="/wiews/template/template.jsp">
+      <put-attribute name="header" value="/views/template/header.jsp"></put-attribute>
       <put-attribute name="body" value=""></put-attribute>
-      <put-attribute name="footer" value="/src/main/webapp/template/footer.jsp"></put-attribute>
+      <put-attribute name="footer" value="/views/template/footer.jsp"></put-attribute>
       </definition>
       
       <definition name="home" extends="definition">
-      <put-attribute name="home" value="/src/main/webapp/views/home.jsp"></put-attribute>
+      <put-attribute name="body" value="/views/home.jsp"></put-attribute>
+      </definition>
+      <definition name="home" extends="definition">
+      <put-attribute name="body" value="/views/product.jsp"></put-attribute>
       </definition>
       </tiles-definitions>
