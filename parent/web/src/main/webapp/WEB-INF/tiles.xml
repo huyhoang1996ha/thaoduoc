@@ -3,7 +3,7 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
       <tiles-definitions>
-      <definition name="definition" template="/wiews/template/template.jsp">
+      <definition name="definition" template="/views/template/template.jsp">
       <put-attribute name="header" value="/views/template/header.jsp"></put-attribute>
       <put-attribute name="body" value=""></put-attribute>
       <put-attribute name="footer" value="/views/template/footer.jsp"></put-attribute>
